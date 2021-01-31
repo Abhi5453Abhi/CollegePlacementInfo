@@ -28,6 +28,7 @@ class placement_controller extends Controller
         sort($arr, 0);
         $temp = 1;
         $company_data = array();
+        if($count!=0){
         for($i=0;$i<$count-1;$i++){
             if($arr[$i] == $arr[$i+1]){
                 $temp++;
@@ -46,7 +47,7 @@ class placement_controller extends Controller
             'company_name' => $arr[$i],
             'company_count' => $temp,
         );
-        // echo $arr[$count-1]. " " . $temp;
+    }
         return view('list_graph',["data"=>$company_data]);
     }
 
