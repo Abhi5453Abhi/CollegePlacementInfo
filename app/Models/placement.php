@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class placement extends Model
 {
+    public $table = "placement";
     public $timestamps = false;
     use HasFactory;
 }

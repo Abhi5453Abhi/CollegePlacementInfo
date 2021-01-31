@@ -15,7 +15,6 @@ class placement_controller extends Controller
     function list()
     {
         $data = placement::all();
-        // echo $data[0]['id'];
         return view('list',["data"=>$data]);
     }
     function list_graph()
