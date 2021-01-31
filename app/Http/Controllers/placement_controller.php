@@ -55,9 +55,10 @@ class placement_controller extends Controller
     function add(Request $req)
     {
         $student = new placement;
-        $student->name = Session::get('user');
-        $users = User::all()->pluck('email')->where('name',$student->name);
-        $student->email = $users;
+        // $student->name = Session::get('user');
+        // $users = User::all()->pluck('email')->where('name',$student->name);
+        $student->email = $req->input('email');
+        $student->name = $req->input('name');
         $student->company_name = $req->input('company_name');
         $student->save();
         $req->session()->flash('status','Company Added Successfully');
