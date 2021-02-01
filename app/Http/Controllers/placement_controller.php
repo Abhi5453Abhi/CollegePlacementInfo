@@ -16,14 +16,10 @@ class placement_controller extends Controller
     {
         $data = placement::all();
         $student_data = student::all()->get('name');
-        // var_dump($student_data);
         $count = $data->count();
-        // echo $count."\n";
         for($i=0;$i<$count;$i++){
             $name = $data[$i]->name;
-            echo $data[$i]->name;
-            $data[$i]->email = student::where('name',$name)->get('email');
-            echo $data[$i]->email."\n";
+            $data[$i]->email = student::where('name',$name)->get('email')->email;
         }
         return view('list',["data"=>$data]);
     }
