@@ -84,7 +84,7 @@ class placement_controller extends Controller
     }
     function register(Request $req)
     {
-        $user = new User;
+        $user = new user;
         $user->name = $req->input('name');
         $user->email = $req->input('email');
         $user->password = Crypt::encrypt($req->input('password'));
