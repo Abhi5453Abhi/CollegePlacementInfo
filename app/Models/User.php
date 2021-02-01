@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class user extends Model
 {
-    public $table = "placements";
+    public $table = "users";
     public $timestamps = false;
     use HasFactory;
 }
