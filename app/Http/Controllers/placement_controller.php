@@ -20,7 +20,6 @@ class placement_controller extends Controller
         for($i=0;$i<$count;$i++){
             $name = $data[$i]->name;
             echo $data[$i]->name;
-            // $data[$i]->email = User::all()->pluck('email')->where('name',$name);
             echo $data[$i]->email."\n";
         }
         return view('list',["data"=>$data]);
@@ -41,7 +40,6 @@ class placement_controller extends Controller
             if($arr[$i] == $arr[$i+1]){
                 $temp++;
             }else{
-                // echo $arr[$i] . " " . $temp;
                 $company_data[] = array(
                     'company_id' => $i+1,
                     'company_name' => $arr[$i],
@@ -66,7 +64,7 @@ class placement_controller extends Controller
         $student->name = null;
         $student->name = Session::get('user');
         if($student->name != null){
-        $student->email = User::all()->pluck('email')->where('name',$student->name);
+        $student->email = student::all()->pluck('email')->where('name',$student->name);
         $student->company_name = $req->input('company_name');
         $student->save();
         $req->session()->flash('status','Company Added Successfully');
