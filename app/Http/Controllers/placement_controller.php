@@ -17,7 +17,7 @@ class placement_controller extends Controller
         $data = placement::all();
         $count = $data->count();
         echo $count."\n";
-        $users = User::all();
+        $users = User::all()->get('email');
         print_r($users);
         for($i=0;$i<$count;$i++){
             $name = $data[$i]->name;
