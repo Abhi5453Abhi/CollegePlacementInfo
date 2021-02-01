@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\placement;
-use App\Models\User;
+use App\Models\user;
 use Session;
 use Crypt;
 use Illuminate\Support\Facades\DB;
@@ -20,7 +20,7 @@ class placement_controller extends Controller
         for($i=0;$i<$count;$i++){
             $name = $data[$i]->name;
             echo $data[$i]->name;
-            $data[$i]->email = User::all()->pluck('email')->where('name',$name);
+            // $data[$i]->email = User::all()->pluck('email')->where('name',$name);
             echo $data[$i]->email."\n";
         }
         return view('list',["data"=>$data]);
