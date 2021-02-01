@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\placement;
-use App\Models\user;
+use App\Models\student;
 use Session;
 use Crypt;
 use Illuminate\Support\Facades\DB;
@@ -84,7 +84,7 @@ class placement_controller extends Controller
     }
     function register(Request $req)
     {
-        $curr_user = new user;
+        $curr_user = new student;
         $curr_user->name = $req->input('name');
         $curr_user->email = $req->input('email');
         $curr_user->password = Crypt::encrypt($req->input('password'));
