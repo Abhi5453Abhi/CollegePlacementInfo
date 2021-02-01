@@ -75,7 +75,6 @@ class placement_controller extends Controller
         $user = new User;
         $user->name = $req->input('name');
         $user->email = $req->input('email');
-        $user->contact = $req->input('contact');
         $user->password = Crypt::encrypt($req->input('password'));
         $user->save();
         $req->session()->put('user',$req->input('name'));
