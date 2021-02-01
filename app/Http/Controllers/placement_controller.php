@@ -19,7 +19,8 @@ class placement_controller extends Controller
         $count = $data->count();
         for($i=0;$i<$count;$i++){
             $name = $data[$i]->name;
-            $data[$i]->email = student::where('name',$name)->get('email')->email;
+            $email = student::where('name',$name)->get('email');
+            $data[$i]->email = $email->email;
         }
         return view('list',["data"=>$data]);
     }
