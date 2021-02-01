@@ -19,6 +19,7 @@ class placement_controller extends Controller
         echo $count."\n";
         for($i=0;$i<$count;$i++){
             echo $data[$i]->name."\n";
+            echo $data[$i]->email."\n";
         }
         return view('list',["data"=>$data]);
     }
