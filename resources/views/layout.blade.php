@@ -22,12 +22,12 @@
       <li class="nav-item">
         <a class="nav-link" href="/list">Students-Record</a>
       </li>
+      @if(Session::get('user'))
       <li class="nav-item">
         <a class="nav-link" href="/add">Add</a>
       </li>
-      @if(Session::get('user'))
       <li class="nav-item">
-        <a class="nav-link" href="/login">{{Session::get('user')}}</a>
+        <a class="nav-link" href="/">{{Session::get('user')}}</a>
       </li>
       @else
       <li class="nav-item">
