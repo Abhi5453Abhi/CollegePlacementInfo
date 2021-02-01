@@ -15,12 +15,14 @@ class placement_controller extends Controller
     function list()
     {
         $data = placement::all();
+        $student_data = student::all();
+        var_dump($student_data);
         $count = $data->count();
         echo $count."\n";
         for($i=0;$i<$count;$i++){
             $name = $data[$i]->name;
             echo $data[$i]->name;
-            $data[$i]->email = student::pluck('email')->where('name',$name);
+            $data[$i]->email = student::where('name',$name)->get('email');
             echo $data[$i]->email."\n";
         }
         return view('list',["data"=>$data]);
