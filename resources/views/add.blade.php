@@ -7,14 +7,6 @@
    <form method="POST" action="add">
       @csrf
       <div class="form-group">
-         <label>Name</label>
-         <input type="text" name="name" placeholder="Enter name">
-      </div>
-      <div class="form-group">
-         <label>Email</label>
-         <input type="text" name="email" placeholder="Enter email">
-      </div>
-      <div class="form-group">
          <label>Company Name</label>
          <select name="company_name" id="company_name">
             <option value="zomato">Zomato</option>
