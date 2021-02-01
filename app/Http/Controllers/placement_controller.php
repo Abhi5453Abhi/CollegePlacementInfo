@@ -15,6 +15,11 @@ class placement_controller extends Controller
     function list()
     {
         $data = placement::all();
+        $count = $data->count();
+        echo $count."\n";
+        for($i=0;$i<$count;$i++){
+            echo $data[$i]->name."\n";
+        }
         return view('list',["data"=>$data]);
     }
     function list_graph()
@@ -59,6 +64,7 @@ class placement_controller extends Controller
         $student->name = Session::get('user');
         if($student->name != null){
         $student->email = User::all()->pluck('email')->where('name',$student->name);
+
         $student->company_name = $req->input('company_name');
         $student->save();
         $req->session()->flash('status','Company Added Successfully');
