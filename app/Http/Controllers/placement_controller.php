@@ -95,4 +95,12 @@ class placement_controller extends Controller
         $req->session()->put('user',$req->input('name'));
         return redirect('/');
     }
+    function login(Request $req)
+    {
+        $req->validate([
+            'email' => 'required | email',
+            'password' => 'required | min : 5'
+        ]);
+        return student::where('email',$req->input('email'));
+    }
 }
