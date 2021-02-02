@@ -7,6 +7,11 @@
    <form method="POST" action="register">
       @csrf
       <div class="form-group">
+         <label>Name</label>
+         <input type="text" name="name" placeholder="Enter name"> <br>
+         <span style="color: red">@error('name'){{$message}}@enderror</span>
+      </div>
+      <div class="form-group">
          <label>Email</label>
          <input type="text" name="email" placeholder="Enter email"><br>
          <span style="color: red">@error('email'){{$message}}@enderror</span>
