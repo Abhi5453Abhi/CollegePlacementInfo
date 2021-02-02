@@ -4,7 +4,7 @@
 
 <h1>Add A New Company</h1>
 <div class="col-sm-6">
-   <form method="POST" action="register">
+   <form method="POST" action="login">
       @csrf
       <div class="form-group">
          <label>Email</label>
