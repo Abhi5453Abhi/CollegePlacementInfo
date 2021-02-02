@@ -83,9 +83,9 @@ class placement_controller extends Controller
     function register(Request $req)
     {
         $req->validate([
-            'name' => 'required',
-            'email' => 'required',
-            'password' => 'required'
+            'name' => 'required | max : 20',
+            'email' => 'required | email',
+            'password' => 'required | min : 5'
         ]);
         $curr_user = new student;
         $curr_user->name = $req->input('name');
