@@ -101,6 +101,8 @@ class placement_controller extends Controller
             'email' => 'required | email',
             'password' => 'required | min : 5'
         ]);
-        return student::where('email',$req->input('email'))->get();
+        $user = student::where('email',$req->input('email'))->get();
+        $req->session()->put('user',$user[0]->name);
+        return redirect('/');
     }
 }
