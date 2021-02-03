@@ -23,7 +23,7 @@
   font-size:48px;
 }
 a{
-  padding-left:5em;
+  padding-left:2em;
 }
 </style>
 </head>
