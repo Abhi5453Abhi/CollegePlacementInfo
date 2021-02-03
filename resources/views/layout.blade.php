@@ -58,9 +58,17 @@
 </div>
 <div class="footer">
     <p>Made by Abhishek</p>
+    <table class="table">
+  <thead>
+    <tr>
     <a href="#" class="social-media fa fa-linkedin-square"></a>
     <a href="#" class="social-media fa fa-github"></a>
     <a href="#" class="social-media fa fa-google-plus-square"></a>
+    </tr>
+  </thead>
+    
+    
+    
 </div>
 </body>
 </html>
