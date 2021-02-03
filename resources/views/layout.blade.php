@@ -62,11 +62,9 @@
     <table class="table">
   <thead>
     <tr>
-    <a href="#" class="social-media fa fa-linkedin-square"></a>
+    <a href="https://www.linkedin.com/in/abhishekarora5453/" class="social-media fa fa-linkedin-square"></a>
     &emsp;&emsp;&emsp;
-    <a href="#" class="social-media fa fa-github"></a>
-    &emsp;&emsp;&emsp;
-    <a href="#" class="social-media fa fa-google-plus-square"></a>
+    <a href="https://github.com/Abhi5453Abhi" class="social-media fa fa-github"></a>
     </tr>
   </thead>
     

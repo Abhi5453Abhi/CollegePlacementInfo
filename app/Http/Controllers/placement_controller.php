@@ -102,7 +102,11 @@ class placement_controller extends Controller
             'password' => 'required | min : 5'
         ]);
         $user = student::where('email',$req->input('email'))->get();
+        if(Crypt::decrypt($user[0]->password) == $req->input('password')){
         $req->session()->put('user',$user[0]->name);
         return redirect('/');
+        }else{
+            return redirect('/login');
+        }
     }
 }
