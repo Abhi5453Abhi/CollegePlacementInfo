@@ -18,6 +18,7 @@
   width: 100%;
   color: black;
   text-align: center;
+  padding-left:2em;
 }
 .social-media{
   font-size:48px;
