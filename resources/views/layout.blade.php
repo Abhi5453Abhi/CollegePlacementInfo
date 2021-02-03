@@ -19,6 +19,9 @@
   color: black;
   text-align: center;
 }
+.social-media{
+  font-size:48px;
+}
 </style>
 </head>
 <body>
@@ -55,7 +58,7 @@
 </div>
 <div class="footer">
     <p>Made by Abhishek</p>
-    <a href="#" class="fa fa-linkedin-square"></a>
+    <a href="#" class="social-media fa fa-linkedin-square"></a>
 </div>
 </body>
 </html>
