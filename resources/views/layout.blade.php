@@ -22,6 +22,9 @@
 .social-media{
   font-size:48px;
 }
+a{
+  padding-left:5em;
+}
 </style>
 </head>
 <body>
@@ -62,9 +65,9 @@
   <thead>
     <tr>
     <a href="#" class="social-media fa fa-linkedin-square"></a>
-    &nbsp;&nbsp;&nbsp;&nbsp;
+    <!-- &nbsp;&nbsp;&nbsp;&nbsp; -->
     <a href="#" class="social-media fa fa-github"></a>
-    &nbsp;&nbsp;&nbsp;&nbsp;
+    <!-- &nbsp;&nbsp;&nbsp;&nbsp; -->
     <a href="#" class="social-media fa fa-google-plus-square"></a>
     </tr>
   </thead>
