@@ -53,9 +53,9 @@
 <div>
    @yield('content')
 </div>
-<footer>
-        <p>Made by Abhishek</p>
-        <a href="#" class="fa fa-linkedin-square"></a>
-    </footer>
+<div class="footer">
+    <p>Made by Abhishek</p>
+    <a href="#" class="fa fa-linkedin-square"></a>
+</div>
 </body>
 </html>
