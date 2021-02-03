@@ -43,5 +43,9 @@
 <div>
    @yield('content')
 </div>
+<footer>
+        <p>Made by Abhishek</p>
+        <a href="#" class="fa fa-linkedin-square"></a>
+    </footer>
 </body>
 </html>
