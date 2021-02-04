@@ -21,7 +21,7 @@ class CustomAuth
         if($path == "login" || $path == "register" && Session::get('user')){
             return redirect('/');
         }else if($path != "login" && $path != "register" && !Session::get('user')){
-            $req->session()->flash('status','Please Login or register first');
+            $request->session()->flash('status','Please Login or register first');
             return redirect('/login');
         }
         return $next($request);
