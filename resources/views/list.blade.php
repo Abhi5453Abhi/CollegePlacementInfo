@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('content')
-
+@if(Session::has('user'))
 <div>
    <h1>
       Students Record
@@ -44,4 +44,8 @@
   </tbody>
 </table>
 <p></p>
+@elseif
+<h1>
+      Please login or register First
+   </h1>
 @stop
