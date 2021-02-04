@@ -48,4 +48,5 @@
 <h1>
       Please login or register First
    </h1>
+@endif
 @stop
