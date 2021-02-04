@@ -8,7 +8,7 @@
       @csrf
       <div class="form-group">
          <label>Company Name</label>
-         <select size="4" name="company_name" id="company_name">
+         <select size="1" name="company_name" id="company_name">
             <option value="zomato">Zomato</option>
             <option value="Apple">Apple</option>
             <option value="Alyve">Alyve</option>
@@ -21,7 +21,7 @@
       </div>
       <div class="form-group">
          <label>When did you get place?</label>
-         <select class="joining_month" size="5" style="width:100px;" name="joining_month" id="joining_month">
+         <select class="joining_month" size="1" style="width:100px;" name="joining_month" id="joining_month">
             <option value="Januray">January</option>
             <option value="February">February</option>
             <option value="March">March</option>
