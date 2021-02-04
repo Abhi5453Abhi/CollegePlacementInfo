@@ -107,7 +107,7 @@ class placement_controller extends Controller
         $req->session()->put('user',$user[0]->name);
         return redirect('/');
         }else{
-            return Crypt::decrypt($user[0]->password);
+            return "Password Not Correct";
         }
     }
 }
