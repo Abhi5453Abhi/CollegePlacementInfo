@@ -15,7 +15,7 @@ class placement_controller extends Controller
     function list()
     {
         $data = placement::all();
-        $student_data= placement::all()->get();
+        $student_data= placement::all();
         print_r($student_data);
         $count = $data->count();
         for($i=0;$i<$count;$i++){
