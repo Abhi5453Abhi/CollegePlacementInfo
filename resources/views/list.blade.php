@@ -37,7 +37,7 @@
       <td>{{$item->company_name}}</td>
       <td>{{$item->joining_month}}</td>
       <td>{{$item->profile}}</td>
-@if(Session::get('email') == {{$item->email}})
+@if(Session::get('email') == $item->email)
       <td><a href="delete/{{$item->email}}"><i class="fa fa-trash"></i></a></td>
       <td><a href="edit/{{$item->email}}"><i class="fa fa-edit"></i></a></td>
 @endif
