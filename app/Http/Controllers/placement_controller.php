@@ -11,6 +11,21 @@ use Illuminate\Support\Facades\DB;
 
 class placement_controller extends Controller
 {
+    function register(Request $req)
+    {
+        $req->validate([
+            'name' => 'required | max : 20',
+            'email' => 'required | email',
+            'password' => 'required | min : 5'
+        ]);
+        $curr_user = new student;
+        $curr_user->name = $req->input('name');
+        $curr_user->email = $req->input('email');
+        $curr_user->password = Crypt::encrypt($req->input('password'));
+        $curr_user->save();
+        $req->session()->put('user',$req->input('name'));
+        return redirect('/');
+    }
     //for displaying list of all companies
     function list()
     {
@@ -69,7 +84,7 @@ class placement_controller extends Controller
         $student->joining_month = $req->input('joining_month');
         $student->profile = $req->input('profile');
         $student->save();
-        $req->session()->flash('status','Company Added Successfully');
+        $req->session()->flash('status',$student->email);
         return redirect('list');
         }else{
             $req->session()->flash('status','Please register or login FIRST');
@@ -81,21 +96,6 @@ class placement_controller extends Controller
         placement::find($id)->delete();
         Session()->flash('status','Company Deleted Successfully');
         return redirect('list');
-    }
-    function register(Request $req)
-    {
-        $req->validate([
-            'name' => 'required | max : 20',
-            'email' => 'required | email',
-            'password' => 'required | min : 5'
-        ]);
-        $curr_user = new student;
-        $curr_user->name = $req->input('name');
-        $curr_user->email = $req->input('email');
-        $curr_user->password = Crypt::encrypt($req->input('password'));
-        $curr_user->save();
-        $req->session()->put('user',$req->input('name'));
-        return redirect('/');
     }
     function login(Request $req)
     {
