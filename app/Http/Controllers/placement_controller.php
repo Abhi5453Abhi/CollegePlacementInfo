@@ -15,7 +15,6 @@ class placement_controller extends Controller
     function list()
     {
         $data = placement::all();
-        $student_data= placement::all();
         print_r($student_data);
         $count = $data->count();
         for($i=0;$i<$count;$i++){
@@ -67,6 +66,8 @@ class placement_controller extends Controller
         if($student->name != null){
         $student->email = student::all()->pluck('email')->where('name',$student->name);
         $student->company_name = $req->input('company_name');
+        $student->joining_month = $req->input('joining_month');
+        $student->profile = $req->input('profile');
         $student->save();
         $req->session()->flash('status','Company Added Successfully');
         return redirect('list');
