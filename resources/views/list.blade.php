@@ -37,8 +37,8 @@
       <td>{{$item->company_name}}</td>
       <td>{{$item->joining_month}}</td>
       <td>{{$item->profile}}</td>
-      <td><a href="delete/{{$item->id}}"><i class="fa fa-trash"></i></a></td>
-      <td><a href="edit/{{$item->id}}"><i class="fa fa-edit"></i></a></td>
+      <td><a href="delete/{{$item->email}}"><i class="fa fa-trash"></i></a></td>
+      <td><a href="edit/{{$item->email}}"><i class="fa fa-edit"></i></a></td>
     </tr>
     @endforeach
   </tbody>

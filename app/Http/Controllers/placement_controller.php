@@ -94,7 +94,7 @@ class placement_controller extends Controller
     }
     function delete($id)
     {
-        placement::find($id)->delete();
+        placement::find($email)->delete();
         Session()->flash('status','Company Deleted Successfully');
         return redirect('list');
     }
