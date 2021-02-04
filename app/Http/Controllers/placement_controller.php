@@ -17,6 +17,7 @@ class placement_controller extends Controller
         $data = placement::all();
         $count = $data->count();
         for($i=0;$i<$count;$i++){
+            $data[$i]->id = $i+1;
             $name = $data[$i]->name;
             $email = student::where('name',$name)->pluck('email')->first();
             $data[$i]->email = $email;
