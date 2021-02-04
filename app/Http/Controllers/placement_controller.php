@@ -79,7 +79,8 @@ class placement_controller extends Controller
         $student->name = null;
         $student->name = Session::get('user');
         if($student->name != null){
-        $student->email = student::where('name',$student->name)->pluck('email');
+        $email = student::where('name',$student->name)->pluck('email');
+        $student->email = $email[0];
         $student->company_name = $req->input('company_name');
         $student->joining_month = $req->input('joining_month');
         $student->profile = $req->input('profile');
