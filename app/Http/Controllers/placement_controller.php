@@ -15,8 +15,10 @@ class placement_controller extends Controller
     function list()
     {
         $data = placement::all();
-        $student_data = student::all()->get('joining_month');
-        print_r($student_data);
+        $student_month = student::all()->pluck('joining_month')->get();
+        $student_name = student::all()->pluck('name')->get();
+        print_r($student_month);
+        print_r($student_name);
         $count = $data->count();
         for($i=0;$i<$count;$i++){
             $name = $data[$i]->name;
