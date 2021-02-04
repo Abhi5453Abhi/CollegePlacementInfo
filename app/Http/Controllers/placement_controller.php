@@ -92,7 +92,7 @@ class placement_controller extends Controller
             return redirect('register');
         }
     }
-    function delete($id)
+    function delete($email)
     {
         placement::find($email)->delete();
         Session()->flash('status','Company Deleted Successfully');
