@@ -20,7 +20,6 @@ class Placements extends Migration
             $table->string('company_name');
             $table->string('joining_month');
             $table->string('profile');
-
             $table->timestamps();
         });
     }
