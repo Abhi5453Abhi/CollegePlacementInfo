@@ -20,6 +20,7 @@ class placement_controller extends Controller
             $name = $data[$i]->name;
             $email = student::where('name',$name)->pluck('email')->first();
             $data[$i]->email = $email;
+            echo $data[$i]->name." ".$data[$i]->email." ".$data[$i]->joining_month." ".$data[$i]->profile."\n";
         }
         return view('list',["data"=>$data]);
     }
