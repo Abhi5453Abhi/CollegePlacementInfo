@@ -22,6 +22,8 @@
       <th scope="col">Student Name</th>
       <th scope="col">Email</th>
       <th scope="col">Company Name</th>
+      <th scope="col">Joining Month</th>
+      <th scope="col">Profile</th>
       <th>Operations</th>
     </tr>
   </thead>
@@ -33,6 +35,8 @@
       <td>{{$item->name}}</td>
       <td>{{$item->email}}</td>
       <td>{{$item->company_name}}</td>
+      <td>{{$item->joining_month}}</td>
+      <td>{{$item->profile}}</td>
       <td><a href="delete/{{$item->id}}"><i class="fa fa-trash"></i></a></td>
       <td><a href="edit/{{$item->id}}"><i class="fa fa-edit"></i></a></td>
     </tr>
