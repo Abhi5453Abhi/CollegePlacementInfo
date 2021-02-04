@@ -20,7 +20,6 @@ class placement_controller extends Controller
             $name = $data[$i]->name;
             $email = student::where('name',$name)->pluck('email')->first();
             $data[$i]->email = $email;
-            echo $data[$i]->name." ".$data[$i]->email." ".$data[$i]->joining_month." ".$data[$i]->profile."\n";
         }
         return view('list',["data"=>$data]);
     }
@@ -104,12 +103,11 @@ class placement_controller extends Controller
             'password' => 'required | min : 5'
         ]);
         $user = student::where('email',$req->input('email'))->get();
-        echo Crypt::decrypt($user[0]->password);
         if(Crypt::decrypt($user[0]->password) == $req->input('password')){
         $req->session()->put('user',$user[0]->name);
         return redirect('/');
         }else{
-            return "Password Not Correct";
+            return "Password Not Correct. You entered ".Crypt::decrypt($user[0]->password);
         }
     }
 }
