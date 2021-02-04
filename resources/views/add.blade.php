@@ -18,8 +18,6 @@
             <option value="Sharechat">Sharechat</option>
             <option value="Other">Other</option>
          </select>
-      </div>
-      <div class="form-group">
          <label>When did you get place?</label>
          <select size="1" style="width:100px;" name="joining_month" id="joining_month">
             <option value="Januray">January</option>
@@ -35,8 +33,6 @@
             <option value="November">November</option>
             <option value="December">December</option>
          </select>
-      </div>
-      <div class="form-group">
          <label>Your Profile</label>
          <select size="1" style="width:100px;" name="profile" id="profile">
             <option value="Backend Developer">Backend Developer</option>
