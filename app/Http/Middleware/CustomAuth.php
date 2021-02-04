@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Session;
 use Illuminate\Http\Request;
 
 class CustomAuth
@@ -16,7 +17,13 @@ class CustomAuth
      */
     public function handle(Request $request, Closure $next)
     {
-        echo "Hello middleware";
+        $path = $request->path();
+        if($path == "login" || $path == "register" && Session::get('user')){
+            return redirect('/');
+        }else if($path != "login" && $path != "register" && !Session::get('user')){
+            $req->session()->flash('status','Please Login or register first');
+            return redirect('/login');
+        }
         return $next($request);
     }
 }
