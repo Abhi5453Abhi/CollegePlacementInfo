@@ -94,7 +94,7 @@ class placement_controller extends Controller
     }
     function delete($email)
     {
-        placement::find($email)->delete();
+        placement::where('email',$email)->delete();
         Session()->flash('status','Company Deleted Successfully');
         return redirect('list');
     }
