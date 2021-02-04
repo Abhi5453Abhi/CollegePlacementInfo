@@ -21,9 +21,9 @@ class CustomAuth
         if(($path == "login" || $path == "register") && Session::get('user')){
             return redirect('/');
         }
-        // }else if($path != "login" && $path != "register" && !Session::get('user')){
-        //     return redirect('/login');
-        // }
+        else if(($path != "login" && !Session::get('user')) && ($path != "register" && !Session::get('user'))){
+            return redirect('/login');
+        }
         return $next($request);
     }
 }
