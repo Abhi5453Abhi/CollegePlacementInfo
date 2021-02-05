@@ -29,7 +29,6 @@
   </thead>
   <tbody>
 
-{{email}}
 @foreach($data as $item)
     <tr>
       <th scope="row">{{$item->id}}</th>
@@ -38,8 +37,10 @@
       <td>{{$item->company_name}}</td>
       <td>{{$item->joining_month}}</td>
       <td>{{$item->profile}}</td>
+@if($item->email == $email[0])
       <td><a href="delete/{{$item->email}}"><i class="fa fa-trash"></i></a></td>
       <td><a href="edit/{{$item->email}}"><i class="fa fa-edit"></i></a></td>
+@endif
     </tr>
     @endforeach
   </tbody>

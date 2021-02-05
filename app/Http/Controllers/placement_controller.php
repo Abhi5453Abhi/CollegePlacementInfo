@@ -31,12 +31,12 @@ class placement_controller extends Controller
     {
 
         $data = placement::all();
-        $email = student::where('name',Session::get('user'))->pluck('email');
+        $email = student::where('name',Session::get('user'))->get()->pluck('email');
         $count = $data->count();
         for($i=0;$i<$count;$i++){
             $data[$i]->id = $i+1;
         }
-        return view('list',compact('users','email'));
+        return view('list',compact('data','email'));
     }
     function list_graph()
     {
