@@ -29,15 +29,14 @@ class placement_controller extends Controller
     //for displaying list of all companies
     function list()
     {
+
         $data = placement::all();
+        $email = student::where('name',Session::get('user'))->pluck('email');
         $count = $data->count();
         for($i=0;$i<$count;$i++){
             $data[$i]->id = $i+1;
-            $name = $data[$i]->name;
-            // $email = student::where('name',$name)->pluck('email')->first();
-            // $data[$i]->email = $email;
         }
-        return view('list',["data"=>$data]);
+        return view('list',compact('users','email'));
     }
     function list_graph()
     {
