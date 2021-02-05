@@ -25,6 +25,8 @@ Route::group(['middleware' => "web"],function(){
     Route::post('add',[placement_controller::class,'add']);
     Route::view('add','add');
     Route::get('/delete/{id}',[placement_controller::class,'delete']);
+    Route::get ('/edit/{email}',[placement_controller::class,'edit']);
+    Route::post('edit',[placement_controller::class,'update']);
 });
 
 

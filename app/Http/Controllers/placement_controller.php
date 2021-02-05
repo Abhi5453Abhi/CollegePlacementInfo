@@ -97,6 +97,24 @@ class placement_controller extends Controller
         Session()->flash('status','Company Deleted Successfully');
         return redirect('list');
     }
+    function edit($email)
+    {
+        $data=placement::where('email',$email)->get()->first();
+        return view('edit',["data"=>$data]);
+        // print_r($data);
+    }
+    public function update(Request $req)
+    {
+        $student=placement::where('email',$req->input('email'))->get()->first();
+
+        $student->company_name = $req->input('company_name');
+        $student->joining_month = $req->input('joining_month');
+        $student->profile = $req->input('profile');
+        $student->save();
+        $req->session()->flash('status','Updated Successfully!');
+        return redirect('list');
+        // return $req->input("email");
+    }
     function login(Request $req)
     {
         $req->validate([
