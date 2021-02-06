@@ -38,8 +38,11 @@
       <td>{{$item->joining_month}}</td>
       <td>{{$item->profile}}</td>
 @if($item->email == $email[0])
-      <td><a href="delete/{{$item->email}}"><i class="fa fa-trash"></i></a></td>
-      <td><a href="edit/{{$item->email}}"><i class="fa fa-edit"></i></a></td>
+      <td><a href="delete/{{$item->email}}"><i class="fa fa-trash"></i></a>
+      &emsp;&emsp;&emsp;
+      <a href="edit/{{$item->email}}"><i class="fa fa-edit"></i></a></td>
+@else
+<td></td>
 @endif
     </tr>
     @endforeach
@@ -47,8 +50,9 @@
 </table>
 <p></p>
 @else
-<h1>
-      Please login or register First
-   </h1>
+<form action="/login" method="get">
+    <input type="submit" value="Go to my link location" 
+         name="Submit" id="frm1_submit" />
+</form>
 @endif
 @stop

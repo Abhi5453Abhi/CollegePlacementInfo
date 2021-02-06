@@ -1,23 +1,41 @@
-@extends('layout')
-
-@section('content')
-
-<h1>Login Page</h1>
-<div class="col-sm-6">
-   <form method="POST" action="login">
+<link rel="stylesheet" href="<?php echo asset('css/style.css')?>" type="text/css"> 
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<div class="background">
+   <div class="form-box">
+      <div class="button-box">
+                    <div id="btn"> </div>
+                    <button type="button" class="toggle-btn" onclick="login()"> Login </button>
+                    <button type="button" class="toggle-btn" onclick="register()"> Register </button>
+      </div>
+      <form method="POST" action="login" form id="login" class="input-group">
       @csrf
-      <div class="form-group">
-         <label>Email</label>
-         <input type="text" name="email" placeholder="Enter email"><br>
-         <span style="color: red">@error('email'){{$message}}@enderror</span>
-      </div>
-      <div class="form-group">
-         <label>Password</label>
-         <input type="text" name="password" placeholder="Enter password"><br>
-         <span style="color: red">@error('password'){{$message}}@enderror</span>
-      </div>
-      <button type="submit" class="btn btn-primary">Login</button>
-   </form>
-</div>
+         <input type="text" name="email" placeholder="Enter email" class="input-field" required>
+         <input type="password" name="password" placeholder="Enter password" class="input-field" required>
+          <button type="submit" class="submit-btn" > Login </button> 
+    </form>
 
-@stop
+      <form method="POST" action="register" form id="register" class="input-group">
+      @csrf
+         <input type="text" name="name"  class="input-field" placeholder="Enter name" required> 
+         <input type="text" name="email" class="input-field" placeholder="Enter email" required>
+         <input type="password" name="password" class="input-field" placeholder="Enter password" required>
+         <button type="submit" class="submit-btn"> Register  </button>
+   </form>
+   
+</div>
+</div>
+<script>
+            var x=document.getElementById("login");
+            var y=document.getElementById("register");
+            var z=document.getElementById("btn");
+            function register(){
+                x.style.left="-400px";
+                y.style.left="50px";
+                z.style.left="110px";
+            }
+            function login(){
+                x.style.left="50px";
+                y.style.left="450px";
+                z.style.left="0px";
+            }
+</script>

@@ -28,5 +28,6 @@ Route::group(['middleware' => "web"],function(){
     Route::get ('/edit/{email}',[placement_controller::class,'edit']);
     Route::post('edit',[placement_controller::class,'update']);
 });
+Route::post('upload',[placement_controller::class,'upload']);
 
 

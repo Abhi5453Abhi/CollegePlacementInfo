@@ -84,7 +84,7 @@ class placement_controller extends Controller
         $student->joining_month = $req->input('joining_month');
         $student->profile = $req->input('profile');
         $student->save();
-        $req->session()->flash('status',$student->email);
+        $req->session()->flash('status','Company Added Successfully');
         return redirect('list');
         }else{
             $req->session()->flash('status','Please register or login FIRST');
@@ -101,7 +101,6 @@ class placement_controller extends Controller
     {
         $data=placement::where('email',$email)->get()->first();
         return view('edit',["data"=>$data]);
-        // print_r($data);
     }
     public function update(Request $req)
     {
@@ -124,9 +123,15 @@ class placement_controller extends Controller
         $user = student::where('email',$req->input('email'))->get();
         if(Crypt::decrypt($user[0]->password) == $req->input('password')){
         $req->session()->put('user',$user[0]->name);
-        return redirect('/');
+        // return "Correct";
+        return redirect('/list_graph');
         }else{
-            return "Password Not Correct. You entered ".Crypt::decrypt($user[0]->password);
+            return $req->input('password')." ".$user[0]->email." ".Crypt::decrypt($user[0]->password);
         }
+    }
+    function upload(Request $req)
+    {
+        $result = $req->file('file')->store('apiDocs');
+        return ["result" => $result];
     }
 }

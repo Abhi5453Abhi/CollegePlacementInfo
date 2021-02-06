@@ -17,10 +17,10 @@
   </thead>
   <tbody>
 
-@foreach($data as $item)
+@foreach($data as $key=>$item)
     <tr>
     <th scope="row">@php
-        echo $item['company_id']
+        echo $key+1
       @endphp</th>
       <th scope="row">@php
         echo $item['company_name']
