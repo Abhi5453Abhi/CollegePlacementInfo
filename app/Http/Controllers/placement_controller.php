@@ -48,27 +48,30 @@ class placement_controller extends Controller
         }
         sort($arr, 0);
         $temp = 1;
+        $total_count = 0;
         $company_data = array();
         if($count!=0){
         for($i=0;$i<$count-1;$i++){
             if($arr[$i] == $arr[$i+1]){
                 $temp++;
             }else{
+                $percentage = round(($temp/$count)*100);
                 $company_data[] = array(
                     'company_id' => $i+1,
                     'company_name' => $arr[$i],
-                    'company_count' => $temp,
+                    'company_count' => $percentage,
                 );
                 $temp = 1;
             }
         }
+        $percentage = round(($temp/$count)*100);
         $company_data[] = array(
             'company_id' => $i+1,
             'company_name' => $arr[$i],
-            'company_count' => $temp,
+            'company_count' => $percentage,
         );
     }
-        return view('list_graph',["data"=>$company_data]);
+        return view('list_graph',["company_data"=>$company_data]);
     }
 
     //for adding a company name
