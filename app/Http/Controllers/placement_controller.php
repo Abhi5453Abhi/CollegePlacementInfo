@@ -71,7 +71,7 @@ class placement_controller extends Controller
             'company_count' => $percentage,
         );
     }
-        return view('list_graph',["company_data"=>$company_data]);
+        return view('list_graph',["data"=>$company_data]);
     }
 
     //for adding a company name
