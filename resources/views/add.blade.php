@@ -44,6 +44,19 @@
             <option value="Sales">Sales</option>
          </select>
          </br>
+         <h2>Please add your Academic details: </h2>
+  <div class="col-sm-6">
+   <form method="POST" action="add">
+      @csrf
+      <div class="form-group">
+         <input type="text" name="cgpa" placeholder="Cgpa"><br>
+         <br>
+         <input type="text" name="amcat_aptitude" placeholder="AMCAT Aptitude"><br>
+         <br>
+         <input type="text" name="amcat_english" placeholder="AMCAT English"><br>
+         <br>
+         <input type="text" name="amcat_coding_score" placeholder="AMCAT Coding Score"><br>
+         </br>
       <button type="submit" class="btn btn-primary">Submit</button>
       </div>
    </form>

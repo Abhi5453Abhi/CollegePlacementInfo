@@ -52,7 +52,7 @@
 <div>
    @yield('content')
 </div>
-<div class="footer">
+<!-- <div class="footer">
     <p>Made by Abhishek</p>
     <table class="table">
   <thead>
@@ -62,6 +62,6 @@
     <a href="https://github.com/Abhi5453Abhi" class="social-media fa fa-github"></a>
     </tr>
   </thead>
-</div>
+</div> -->
 </body>
 </html>
