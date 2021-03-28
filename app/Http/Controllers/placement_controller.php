@@ -171,12 +171,16 @@ class placement_controller extends Controller
             $sum_x2 += ($total_score*$total_score);
             $return_data[$key]['total_score'] = $total_score;
             $return_data[$key]['package'] = $package;
+            $return_data[$key]['sum_xy'] = $sum_xy;
+            $return_data[$key]['sum_x'] = $sum_x;
+            $return_data[$key]['sum_y'] = $sum_y;
+            $return_data[$key]['sum_x2'] = $sum_x2;
             // echo $count." ".$sum_xy." ".$sum_y." ".$sum_x." ".$sum_x2."\n";
         }
         // $M = (($count*$sum_xy) - ($sum_y*$sum_x))/(($count*$sum_x2) - ($sum_x*$sum_x));
         // $C = ($sum_y/$count) - $M*($sum_x/$count);
-        $return_data[0]['M'] = $M;
-        $return_data[0]['C'] = $C;
+        // $return_data[0]['M'] = $M;
+        // $return_data[0]['C'] = $C;
         return $return_data;
         $user_type = student::where('name',Session::get('user'))->get()->pluck('user_type')->first();
         $return_data[0]['user_type'] = $user_type;
