@@ -22,6 +22,7 @@ class placement_controller extends Controller
         $curr_user->name = $req->input('name');
         $curr_user->email = $req->input('email');
         $curr_user->password = Crypt::encrypt($req->input('password'));
+        $curr_user->user_type = ($req->input('user_type'));
         $curr_user->save();
         $req->session()->put('user',$req->input('name'));
         return redirect('/');
@@ -35,6 +36,7 @@ class placement_controller extends Controller
         $count = $data->count();
         for($i=0;$i<$count;$i++){
             $data[$i]->id = $i+1;
+            $data[$i]->score = ($data[$i]['cgpa']*100+$data[$i]['amcat_aptitude']+$data[$i]['amcat_english']+$data[$i]['amcat_coding_score'])/4;
         }
         return view('list',compact('data','email'));
     }
@@ -86,6 +88,11 @@ class placement_controller extends Controller
         $student->company_name = $req->input('company_name');
         $student->joining_month = $req->input('joining_month');
         $student->profile = $req->input('profile');
+        $student->cgpa = $req->input('cgpa');
+        $student->amcat_aptitude = $req->input('amcat_aptitude');
+        $student->amcat_english = $req->input('amcat_english');
+        $student->amcat_coding_score = $req->input('amcat_coding_score');
+        $student->package = $req->input('package');
         $student->save();
         $req->session()->flash('status','Company Added Successfully');
         return redirect('list');
@@ -108,7 +115,6 @@ class placement_controller extends Controller
     public function update(Request $req)
     {
         $student=placement::where('email',$req->input('email'))->get()->first();
-
         $student->company_name = $req->input('company_name');
         $student->joining_month = $req->input('joining_month');
         $student->profile = $req->input('profile');
@@ -131,6 +137,63 @@ class placement_controller extends Controller
         }else{
             return $req->input('password')." ".$user[0]->email." ".Crypt::decrypt($user[0]->password);
         }
+    }
+    function about(Request $req)
+    {
+        $email = student::where('name',Session::get('user'))->get()->pluck('email')->first();
+        $user_details = placement::where('email',$email)->get()->first();
+        $cgpa = $user_details->cgpa;
+        $amcat_aptitude = $user_details->amcat_aptitude;
+        $amcat_english = $user_details->amcat_english;
+        $amcat_coding_score = $user_details->amcat_coding_score;
+        $total_score = $cgpa + $amcat_aptitude + $amcat_english + $amcat_coding_score;
+        return view('about',["data" => $total_score]);
+    }
+    function analysis(Request $req)
+    {
+        $student_details = placement::all();
+        $return_data = [];
+        $sum_xy = 0;
+        $sum_x = 0;
+        $sum_y = 0;
+        $sum_x2 = 0;
+        $count = sizeof($student_details);
+        foreach($student_details as $key=>$value){
+            $cgpa = $value->cgpa;
+            $amcat_aptitude = $value->amcat_aptitude;
+            $amcat_english = $value->amcat_english;
+            $amcat_coding_score = $value->amcat_coding_score;
+            $total_score = ($cgpa*100 + $amcat_aptitude + $amcat_english + $amcat_coding_score)/4;
+            $package = $value->package;
+            $sum_xy += ($total_score* $package);
+            $sum_x += $total_score;
+            $sum_y += $package;
+            $sum_x2 += ($total_score*$total_score);
+            $return_data[$key]['total_score'] = $total_score;
+            $return_data[$key]['package'] = $package;
+        }
+        $M = (($count*$sum_xy) - ($sum_y*$sum_x))/(($count*$sum_x2) - ($sum_x*$sum_x));
+        $C = ($sum_y/$count) - $M*($sum_x/$count);
+        $return_data[0]['M'] = $M;
+        $return_data[0]['C'] = $C;
+        $user_type = student::where('name',Session::get('user'))->get()->pluck('user_type')->first();
+        $return_data[0]['user_type'] = $user_type;
+        if($user_type == 0){
+            $email = student::where('name',Session::get('user'))->get()->pluck('email')->first();
+            $user_details = placement::where('email',$email)->get()->first();
+            $cgpa = $user_details->cgpa??0;
+            $amcat_aptitude = $user_details->amcat_aptitude??0;
+            $amcat_english = $user_details->amcat_english??0;
+            $amcat_coding_score = $user_details->amcat_coding_score??0;
+            $total_score = ($cgpa*100 + $amcat_aptitude + $amcat_english + $amcat_coding_score)/4;
+            if($total_score == 0){
+                $return_data[0]['package'] = 0;
+            }else{
+            $package = $M*$total_score + $C;
+            $return_data[0]['package'] = $package;
+            }
+        }
+        return view('analysis',["data" => $return_data]);
     }
     function upload(Request $req)
     {

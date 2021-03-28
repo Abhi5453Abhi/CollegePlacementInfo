@@ -44,6 +44,8 @@
             <option value="Sales">Sales</option>
          </select>
          </br>
+         <input type="text" name="package" placeholder="package"><br>
+         <br>
          <h2>Please add your Academic details: </h2>
   <div class="col-sm-6">
    <form method="POST" action="add">

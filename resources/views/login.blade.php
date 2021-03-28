@@ -123,6 +123,7 @@
          <input type="text" name="name"  class="input-field" placeholder="Enter name" required> 
          <input type="text" name="email" class="input-field" placeholder="Enter email" required>
          <input type="password" name="password" class="input-field" placeholder="Enter password" required>
+         <input type="text" name="user_type" class="input-field" placeholder="Enter 1 if you are placed else enter 0" required>
          <button type="submit" class="submit-btn"> Register  </button>
    </form>
    

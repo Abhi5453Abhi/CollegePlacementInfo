@@ -24,6 +24,7 @@
       <th scope="col">Company Name</th>
       <th scope="col">Joining Month</th>
       <th scope="col">Profile</th>
+      <th scope="col">Fuzzy Score</th>
       <th>Operations</th>
     </tr>
   </thead>
@@ -37,6 +38,7 @@
       <td>{{$item->company_name}}</td>
       <td>{{$item->joining_month}}</td>
       <td>{{$item->profile}}</td>
+      <td>{{$item->score}}</td>
 @if($item->email == $email[0])
       <td><a href="delete/{{$item->email}}"><i class="fa fa-trash"></i></a>
       &emsp;&emsp;&emsp;

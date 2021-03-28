@@ -41,7 +41,10 @@
         <a class="nav-link" href="/add">Add</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/list_graph">{{Session::get('user')}}</a>
+        <a class="nav-link" href="/analysis">Placement Analysis</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/about">{{Session::get('user')}}</a>
       </li>
       @else
       <script>window.location = "/login";</script>

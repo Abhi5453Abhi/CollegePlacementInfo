@@ -1,39 +1,47 @@
 @extends('layout')
 
 @section('content')
+<?php
 
-<style>
-* {
-  text-align: center;
-}
+$dataPoints = [];
 
-/* Container for skill bars */
-.container {
-  margin-left:30px;
-  width:80%; /* Full width */
-  background-color: #ddd; /* Grey background */
+foreach($data as $key=>$value){
+  $dataPoints[$key]['label'] = $value['company_name'];
+  $dataPoints[$key]['symbol'] = $value['company_name'];
+  $dataPoints[$key]['y'] = $value['company_count'];
 }
+ 
+?>
+<!DOCTYPE HTML>
+<html>
+<head>
+<script>
+window.onload = function() {
+ 
+var chart = new CanvasJS.Chart("chartContainer", {
+	theme: "light2",
+	animationEnabled: true,
+	title: {
+		text: "%age of students placed in each Company"
+	},
+	data: [{
+		type: "doughnut",
+		indexLabel: "{symbol} - {y}",
+		yValueFormatString: "#,##0.0\"%\"",
+		showInLegend: true,
+		legendText: "{label} : {y}",
+		dataPoints: <?php echo json_encode($dataPoints, JSON_NUMERIC_CHECK); ?>
+	}]
+});
+chart.render();
+ 
+}
+</script>
+</head>
+<body>
+<div id="chartContainer" style="height: 500px; width: 100%;"></div>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+</body>
+</html>
 
-.skills {
-  padding-top: 10px; /* Add top padding */
-  padding-bottom: 10px; /* Add bottom padding */
-  color: white; /* White text color */
-}
-@php
-$total_count = sizeof($data);
-$rand = array('0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f');
-@endphp
-@for($i=0;$i<$total_count;$i++)
-.<?php echo $data[$i]['company_name']; ?> {width: <?php echo $data[$i]['company_count']; ?>%; background-color: <?php echo '#'. $rand[rand(0,15)].$rand[rand(0,15)].$rand[rand(0,15)].$rand[rand(0,15)].$rand[rand(0,15)].$rand[rand(0,15)]?>;} 
-@endfor
-</style>
-@for($i=0;$i<$total_count;$i++)
-<div class="container">
-  <div class="skills <?php echo $data[$i]['company_name']; ?>"> 
-  <?php echo  $data[$i]['company_name']."    ".$data[$i]['company_count']; ?>
-  %</div>
-</div>
-<br>
-@endfor
-//This is a change.
 @stop

@@ -24,6 +24,8 @@ Route::group(['middleware' => "web"],function(){
     Route::get('/list_graph',[placement_controller::class,'list_graph']);
     Route::post('add',[placement_controller::class,'add']);
     Route::view('add','add');
+    Route::get('/about',[placement_controller::class,'about']);
+    Route::get('/analysis',[placement_controller::class,'analysis']);
     Route::get('/delete/{id}',[placement_controller::class,'delete']);
     Route::get ('/edit/{email}',[placement_controller::class,'edit']);
     Route::post('edit',[placement_controller::class,'update']);
