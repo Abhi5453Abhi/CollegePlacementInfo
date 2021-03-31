@@ -59,18 +59,29 @@ chart.render();
  
 }
 </script>
+<style>
+#chartContainer
+{
+	width: 80%;
+	margin-top:1%;
+	margin:auto;
+}
+</style>
 </head>
-<body>
 
+<body>
+<div class="package-info">
+</br>
 <?php 
     // echo gettype($data[0]['user_type']);
     if($data[0]['user_type'] == 0){
         echo  "Your estimated package is ".$data[0]['package'];
     }
 ?>
-
-<div id="chartContainer" style="height: 500px; width: 100%;"></div>
+</div>
+<div id="chartContainer" >
 <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+</div>
 </body>
 </html>
 

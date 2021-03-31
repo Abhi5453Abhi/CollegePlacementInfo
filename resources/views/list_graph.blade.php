@@ -38,10 +38,23 @@ chart.render();
 }
 </script>
 </head>
+<style>
+#chartContainer{
+	
+	background: rgba(0,0,0,0.7);
+	height: 500px; 
+	width: 55%;
+	margin:auto;
+	margin-top:6%;
+	border-radius: 10px;
+}
+
+</style>
 <body>
-<div id="chartContainer" style="height: 500px; width: 100%;"></div>
+<div id="chartContainer"></div>
 <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 </body>
+
 </html>
 
 @stop
