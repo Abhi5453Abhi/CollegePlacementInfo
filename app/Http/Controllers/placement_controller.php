@@ -141,13 +141,10 @@ class placement_controller extends Controller
     function about(Request $req)
     {
         $email = student::where('name',Session::get('user'))->get()->pluck('email')->first();
-        $user_details = placement::where('email',$email)->get()->first();
-        $cgpa = $user_details->cgpa;
-        $amcat_aptitude = $user_details->amcat_aptitude;
-        $amcat_english = $user_details->amcat_english;
-        $amcat_coding_score = $user_details->amcat_coding_score;
-        $total_score = $cgpa + $amcat_aptitude + $amcat_english + $amcat_coding_score;
-        return view('about',["data" => $total_score]);
+
+        $data=placement::where('email',$email)->get()->first();
+        return view('about',["data"=>$data]);
+
     }
     function analysis(Request $req)
     {
