@@ -41,7 +41,7 @@ chart.render();
 <style>
 #chartContainer{
 	
-	background: rgba(0,0,0,0.7);
+	background-color: transparent;
 	height: 500px; 
 	width: 55%;
 	margin:auto;

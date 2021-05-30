@@ -66,6 +66,13 @@ chart.render();
 	margin-top:1%;
 	margin:auto;
 }
+
+.package-info{
+	margin:auto;
+	text-align: center;
+	background: rgb(0,0,0,0.3);
+	color: white;
+}
 </style>
 </head>
 
