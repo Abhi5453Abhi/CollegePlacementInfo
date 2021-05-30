@@ -104,7 +104,7 @@ Placement Analysis</i> </a>
    @yield('content')
 </div>
 <div class="footer fixed-bottom">
-    <p style="color:white">Made by Abhishek</p>
+    <p style="color:white">Made by Abhishek Arora and Jasveen Kaur</p>
     <table class="table">
   <thead>
     <tr>

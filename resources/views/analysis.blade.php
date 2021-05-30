@@ -72,12 +72,11 @@ chart.render();
 <body>
 <div class="package-info">
 </br>
-<?php 
-    // echo gettype($data[0]['user_type']);
-    if($data[0]['user_type'] == 0){
-        echo  "Your estimated package is ".$data[0]['package'];
-    }
-?>
+    <?php if($data[0]['user_type'] == 0){ ?>
+		
+		
+		<h1><?php echo  "Your estimated package is ".$data[0]['package']; ?></h1>
+		<?php } ?>
 </div>
 <div id="chartContainer" >
 <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>

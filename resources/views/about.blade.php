@@ -195,7 +195,7 @@ h1{
          <label class="input-name"> AMCAT Coding Score </label>
          <input type="text" name="amcat_coding_score" class="form-control" value="{{$data->amcat_coding_score}}" readonly ><br>
          
-         <button type="submit" class="submit-btn" > Edit </button>  
+         <!-- <button type="submit" class="submit-btn" > Edit </button>   -->
     
        
       </form>

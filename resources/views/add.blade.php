@@ -227,7 +227,7 @@ input {
          <label class="input-name"> AMCAT Coding Score </label>
          <input type="text" name="amcat_coding_score" class="form-control"><br>
          
-         <button type="submit" class="submit-btn"> Register  </button>  
+         <button type="submit" class="submit-btn"> Submit  </button>  
    </form>
       </div>
       </div>

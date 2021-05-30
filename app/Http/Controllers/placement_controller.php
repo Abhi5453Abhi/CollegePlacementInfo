@@ -85,14 +85,46 @@ class placement_controller extends Controller
         if($student->name != null){
         $email = student::where('name',$student->name)->pluck('email');
         $student->email = $email[0];
-        $student->company_name = $req->input('company_name');
-        $student->joining_month = $req->input('joining_month');
-        $student->profile = $req->input('profile');
-        $student->cgpa = $req->input('cgpa');
-        $student->amcat_aptitude = $req->input('amcat_aptitude');
-        $student->amcat_english = $req->input('amcat_english');
-        $student->amcat_coding_score = $req->input('amcat_coding_score');
-        $student->package = $req->input('package');
+        if($req->has('company_name')){
+            $student->company_name = $req->input('company_name');
+        }else{
+            $student->company_name = "N/A";
+        }
+        if($req->has('joining_month')){
+            $student->joining_month = $req->input('joining_month');
+        }else{
+            $student->joining_month = "N/A";
+        }
+        if($req->has('profile')){
+            $student->profile = $req->input('profile');
+        }else{
+            $student->profile = "N/A";
+        }
+        if($req->has('package')){
+            $student->package = $req->input('package');
+        }else{
+            $student->package = -1;
+        }
+        if($req->has('cgpa')){
+            $student->cgpa = $req->input('cgpa');
+        }else{
+            $student->cgpa = 0;
+        }
+        if($req->has('amcat_aptitude')){
+            $student->amcat_aptitude = $req->input('amcat_aptitude');
+        }else{
+            $student->amcat_aptitude = -1;
+        }
+        if($req->has('amcat_english')){
+            $student->amcat_english = $req->input('amcat_english');
+        }else{
+            $student->amcat_english = -1;
+        }
+        if($req->has('amcat_coding_score')){
+            $student->amcat_coding_score = $req->input('amcat_coding_score');
+        }else{
+            $student->amcat_coding_score = -1;
+        }
         $student->save();
         $req->session()->flash('status','Company Added Successfully');
         return redirect('list');
