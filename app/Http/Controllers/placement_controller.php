@@ -172,9 +172,32 @@ class placement_controller extends Controller
     }
     function about(Request $req)
     {
-        $email = student::where('name',Session::get('user'))->get()->pluck('email')->first();
+        $student_details = student::where('name',Session::get('user'))->get()->first();
+        $data = [];
+        $data['email'] = $student_details->email;
+        $data['name'] = $student_details->name;
+        $placement_details=placement::where('email',$student_details->email)->get()->first();
+        if($placement_details != NULL){
+        $data['company_name'] = $placement_details->company_name;
+        $data['joining_month'] = $placement_details->joining_month;
+        $data['profile'] = $placement_details->profile;
+        $data['package'] = $placement_details->package;
+        $data['cgpa'] = $placement_details->cgpa;
+        $data['amcat_aptitude'] = $placement_details->amcat_aptitude;
+        $data['amcat_english'] = $placement_details->amcat_english;
+        $data['amcat_coding_score'] = $placement_details->amcat_coding_score;
+        }else{
+            $data['company_name'] = '';
+            $data['joining_month'] = '';
+            $data['profile'] = '';
+            $data['package'] = '';
+            $data['cgpa'] = '';
+            $data['amcat_aptitude'] = ''; 
+            $data['amcat_english'] = '';
+            $data['amcat_coding_score'] = '';
+        }
+        // $data['email'] = $placement_details->company_name;
 
-        $data=placement::where('email',$email)->get()->first();
         return view('about',["data"=>$data]);
 
     }

@@ -3,7 +3,6 @@
 @section('content')
 
 
-<!-- <h4><?php echo "Your fuzzy score is ".$data;   ?></h4> -->
 <style>
 *{
     margin: 0;
@@ -162,38 +161,38 @@ h1{
    <form method="POST" action="/edit" form id="login" class="input-group">
       @csrf
       <div class="form-group">
-      <input type="hidden" name="email" value="{{$data->email}}">
+      <input type="hidden" name="email" value="{{$data['email']}}">
       <h1> <i class="fa fa-user-circle-o" aria-hidden="true"></i> Your Details: </h1>
 
       <label class="input-name" > 
  Company Name: </label>
          <!-- <label>Company Name</label> -->
-         <input type="none" value="{{$data->company_name}}" readonly   name="company_name" id="company_name" class="form-control">
+         <input type="none" value="{{$data['company_name']}}" readonly   name="company_name" id="company_name" class="form-control">
     
          <br>
          <label class="input-name">Joining Month: </label>
-         <input type="none" value="{{$data->joining_month}}" readonly  class="form-control"name="joining_month" id="joining_month">
+         <input type="none" value="{{$data['joining_month']}}" readonly  class="form-control"name="joining_month" id="joining_month">
             
          <br>
          <label class="input-name">Your Profile: </label>
-         <input type="none" value="{{$data->profile}}" readonly name="profile" id="profile" class="form-control">
+         <input type="none" value="{{$data['profile']}}" readonly name="profile" id="profile" class="form-control">
             
          </br>
          <label class="input-name">Your Package: </label>
-         <input type="none" name="package" id="package" class="form-control" value="{{$data->package}}" readonly><br>
+         <input type="none" name="package" id="package" class="form-control" value="{{$data['package']}}" readonly><br>
          
       
-      <label class="input-name"> Enter CGPA </label>
-         <input type="text" name="cgpa" class="form-control" value="{{$data->cgpa}}" readonly ><br>
+      <label class="input-name">CGPA </label>
+         <input type="text" name="cgpa" class="form-control" value="{{$data['cgpa']}}" readonly ><br>
         
          <label class="input-name"> AMCAT Aptitude </label>
-         <input type="text" name="amcat_aptitude" class="form-control"  value="{{$data->amcat_aptitude}}"readonly><br>
+         <input type="text" name="amcat_aptitude" class="form-control"  value="{{$data['amcat_aptitude']}}"readonly><br>
         
          <label class="input-name"> AMCAT English </label>
-         <input type="text" name="amcat_english" class="form-control" value="{{$data->amcat_english}}" readonly><br>
+         <input type="text" name="amcat_english" class="form-control" value="{{$data['amcat_english']}}" readonly><br>
         
          <label class="input-name"> AMCAT Coding Score </label>
-         <input type="text" name="amcat_coding_score" class="form-control" value="{{$data->amcat_coding_score}}" readonly ><br>
+         <input type="text" name="amcat_coding_score" class="form-control" value="{{$data['amcat_coding_score']}}" readonly ><br>
          
          <!-- <button type="submit" class="submit-btn" > Edit </button>   -->
     
