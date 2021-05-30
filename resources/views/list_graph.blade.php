@@ -45,7 +45,7 @@ chart.render();
 	height: 500px; 
 	width: 55%;
 	margin:auto;
-	margin-top:6%;
+	margin-top:2%;
 	border-radius: 10px;
 }
 
